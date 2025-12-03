@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500&display=swap");
+@layer theme, base, components, utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Color */
+  --pink: #ff2a70;
+  --grey: rgba(0, 0, 0, 0.9);
+  --white: #fff; /*eller tailwinds white*/
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Font */
+  --font-ubuntu: Ubuntu;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Active/hover line (linear gradient) */
+  --pinkLine: linear-gradient(90deg, rgba(255, 42, 112, 0), rgba(255, 42, 112, 0) 52.61%, rgba(255, 42, 112, 0));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  font-family: var(--font-ubuntu);
+}
+
+/** Typography **/
+
+h1 {
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+h2 {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+h3 {
+  font-size: 1rem;
+  color: var(--pink);
+}
+
+p {
+  font-size: 0.8rem;
+  color: white;
 }
