@@ -1,7 +1,5 @@
-
 import "./globals.css";
-import Nav from "../app/_components/Nav.jsx"
-
+import Nav from "./_components/Nav.jsx";
 
 export const metadata = {
   title: "Night Club",
@@ -12,10 +10,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Nav/>
+        <Nav />
 
-      
-      
         {children}
       </body>
     </html>
