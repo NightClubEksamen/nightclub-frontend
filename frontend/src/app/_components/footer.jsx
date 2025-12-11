@@ -38,7 +38,7 @@ const Footer = () => {
           {/*Tweet 1*/}
           <article className="hidden md:grid md:grid-cols-[auto_2fr] md:grid-rows-[auto_1fr] gap-2 self-start">
             <Link href="http://twitter.com" className="row-span-2">
-              <FaTwitter className="h-6 w-6 text-[var(--pink)]" />
+              <FaTwitter className="h-6 w-6 text-[#FF2A70]" />
             </Link>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
             <h4>5 hours ago</h4>
@@ -61,7 +61,7 @@ const Footer = () => {
           {/*Tweet 2*/}
           <article className="hidden md:grid md:grid-cols-[auto_2fr] md:grid-rows-[auto_1fr] gap-2 self-start">
             <Link href="http://twitter.com" className="row-span-2">
-              <FaTwitter className="h-6 w-6 text-[var(--pink)]" />
+              <FaTwitter className="h-6 w-6 text-[#FF2A70]" />
             </Link>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
             <h4>5 hours ago</h4>
