@@ -3,6 +3,7 @@ import Hero from "./_components/_home_comps/_hero_section/Hero";
 import Gallery from "./_components/_home_comps/_gallery_section/Gallery";
 import MusicPlayer from "./_components/MusicPlayer";
 import VideoPlayer from "./_components/VideoPlayer";
+import Testimonials from "./_components/_home_comps/_testimonials_section/Testimonial";
 
 
 
@@ -18,6 +19,7 @@ export default function Page() {
       <MusicPlayer />
       <TitleLine title="latest video" className="place-self-center text-center" />
       <VideoPlayer />
+      <Testimonials />
       <TitleLine title="recent blog" className="place-self-center text-center" />
     </>
   );
