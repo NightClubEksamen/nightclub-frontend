@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "tailwindcss";
-@import "tailwindcss";
 
-@layer theme, base, components, utilities;
+/*@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";*/
 
 :root {
   /* Color */
@@ -25,8 +26,9 @@ body {
   color: white;
 }
 
-button{
-  @apply pointer-events-auto cursor-pointer;
+button {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 /** Typography **/
@@ -57,6 +59,19 @@ p {
 }
 
 /** Forms **/
+/* Før havde vi @apply, hvor man kunne bruge tailwind's styling format/syntax..
+    Dog blev det 'falgged' med warning: Unknown rule
+      Koden virkede teknisk set, men vi kunne ikke være sikre på om: 1) det ville virke i alle browser og på alle enheder, 2) det kunne udløse andre problemer.
+    Inden ændring til ren CSS prøvede vi at finde løsninger, hvor vi til sidst spurgte Chat til råds, hvortil vi prøvede at implementere dens "løsninger" og ultimativt at vi bare skulle ændre settings til at ignorere warnings om unknown rules.
+   Til ændringen fik vi hjælp af Chat til at generere/oversætte tailwinds sizes(e.g. w-50) til rem og farver til hex/rgb.
+
+  Hvorfor ikke bare style elementerne i tailwind?
+    En samlet styling for forms på sitet giver bedre/mere konsistens
+      - Vi vil undgå gentagelser for hver form (ift. styling)
+      - Gør det lettere at opdatere styling for (alle) forms
+      - Det gør forms mere overskuelige, hvori layoutet styles i tailwind
+*/
+
 form {
   color-scheme: dark; /*dette hjalp med at gøre dato ikon hvid*/
 
@@ -65,39 +80,95 @@ form {
     color-scheme: inherit;
 
     option {
-      @apply bg-neutral-800;
+      background-color: #262626;
     }
   }
 }
 
-/* General styling */
+/*** General styling for form elements ***/
+/* Form field wrapper */
 .form-field {
-  @apply grid grid-cols-2 grid-rows-[auto] items-center p-3 px-5 text-lg
-  border-white border-solid border-[1px] hover:border-[var(--pink)] focus:border-[var(--pink)] active:border-[var(--pink)];
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto;
+  align-items: center;
+  padding: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 1.125rem;
+  border: 1px solid white;
+  outline: none;
+
   label {
     color: rgba(255, 255, 255, 0.5);
   }
 }
 
+/* hover, focus, active */
+.form-field:hover,
+.form-field:focus,
+.form-field:active {
+  border-color: var(--pink);
+}
+
+/* Input fields */
 .form-input {
-  @apply justify-items-stretch
-  border-b border-b-black rounded p-1 pl-5 cursor-pointer
-  hover:bg-neutral-700 focus:bg-neutral-800 active:bg-neutral-800;
+  justify-items: stretch;
+  border-bottom: 1px solid black;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  padding-left: 1.25rem;
+  cursor: pointer;
   outline: none;
+}
+.is-filled {
+  background-color: #171717;
 }
 .form-input::placeholder {
   color: white;
 }
-.is-filled {
-  @apply bg-neutral-900;
+
+/* hover, focus, active */
+.form-input:hover {
+  background-color: #404040;
+}
+.form-input:focus,
+.form-input:active {
+  background-color: #262626;
 }
 
+/* Comment field */
 .form-comment {
-  @apply min-h-[20vh] field-sizing-content !grid-cols-1 !text-left;
+  min-height: 20vh;
+  field-sizing: content !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  text-align: left !important;
 }
 
+/* Submit button */
 .form-button {
-  @apply uppercase place-self-end p-2 w-50 border-2 border-black border-y-white cursor-pointer
-  hover:text-[var(--pink)] active:text-[var(--pink)] hover:border-y-[var(--pink)] active:border-y-[var(--pink)]
-  md:col-span-2;
+  text-transform: uppercase;
+  place-self: end;
+  padding: 0.5rem;
+  width: 12.5rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-top-color: white;
+  border-bottom-color: white;
+  cursor: pointer;
+}
+
+.form-button:hover,
+.form-button:active {
+  color: var(--pink);
+  border-top-color: var(--pink);
+  border-bottom-color: var(--pink);
+}
+
+/* Medium screens (md:) */
+@media (min-width: 768px) {
+  .form-button {
+    grid-column: span 2;
+  }
 }

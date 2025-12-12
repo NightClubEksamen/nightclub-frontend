@@ -25,7 +25,7 @@ export default async function Gallery() {
           {firstRow.map((photo) => (
             <div
               key={photo.id}
-              className="relative w-full overflow-hidden aspect-[16/9]"
+              className="relative w-full overflow-hidden aspect-video"
             >
               <Image
                 src={photo.asset.url}
@@ -42,7 +42,7 @@ export default async function Gallery() {
           {secondRow.map((photo) => (
             <div
               key={photo.id}
-              className="relative w-full overflow-hidden aspect-[16/9]"
+              className="relative w-full overflow-hidden aspect-video"
             >
               <Image
                 src={photo.asset.url}
