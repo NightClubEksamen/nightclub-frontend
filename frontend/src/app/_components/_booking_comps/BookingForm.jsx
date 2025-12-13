@@ -83,7 +83,7 @@ export default function BookingForm() {
         {/* Comment */}
         <div className="form-field form-comment md:col-span-2">
           <label htmlFor="comment">Your Comment</label>
-          <textarea id="comment" className="form-input form-comment !pl-0" {...register("Your Comment", { maxLength: 250 })} />
+          <textarea id="comment" className="form-input form-comment pl-0!" {...register("Your Comment", { maxLength: 250 })} />
         </div>
 
         {/* Submit */}

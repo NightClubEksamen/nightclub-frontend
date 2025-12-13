@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaSnapchatGhost, FaTwitter, FaSquareFull } from "react-icons/fa";
 
-import SlideSquareBtns from "../../_buttons/SlideSquareBtns";
 import { color } from "framer-motion";
 
 export default function Testimonials() {
