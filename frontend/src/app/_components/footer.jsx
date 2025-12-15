@@ -6,10 +6,10 @@ import { FaFacebookF, FaSnapchatGhost, FaInstagram, FaTwitter } from "react-icon
 const Footer = () => {
   return (
     <>
-      <div className="grid grid-cols-1 grid-rows-1">
+      <div className="grid grid-cols-1 grid-rows-1 place-items-center">
         <Image src="/footerbg.webp" alt="People dancing" width={1600} height={1600} className="h-full w-fit lg:w-full brightness-20 object-cover z-0 row-start-1 row-end-2 col-start-1 col-end-2" />
 
-        <footer className="grid grid-cols-1 grid-rows-[auto] md:grid-cols-3 justify-items-center md:justify-items-start items-end gap-5 p-5 md:p-10 lg:px-20 z-100 row-start-1 row-end-2 col-start-1 col-end-2">
+        <footer className="grid grid-cols-1 grid-rows-[auto] md:grid-cols-3 justify-items-center md:justify-items-start items-end gap-5 max-w-6xl p-5 md:p-10 lg:px-20 z-100 row-start-1 row-end-2 col-start-1 col-end-2">
           {/*img/link*/}
           <Link href="/">
             <Image src="/Logo.png" alt="logo image" width={200} height={27} />
