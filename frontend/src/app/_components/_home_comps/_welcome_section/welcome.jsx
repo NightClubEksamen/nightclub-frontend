@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { MdOutlineRoomService } from "react-icons/md";
 import { PiCheersDuotone } from "react-icons/pi";
-import LeftTriangle from "../../_ui/LeftTriangle";
-import RightTriangle from "../../_ui/RightTriangle";
-import { motion, AnimatePresence } from "framer-motion";
 import Animation from "./Animation";
 
 const OFFERS = [
