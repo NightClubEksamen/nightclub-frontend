@@ -4,7 +4,7 @@ import Gallery from "./_components/_home_comps/_gallery_section/Gallery";
 import MusicPlayer from "./_components/MusicPlayer";
 import VideoPlayer from "./_components/VideoPlayer";
 import Testimonials from "./_components/_home_comps/_testimonials_section/Testimonial";
-
+import Welcome from "./_components/_home_comps/_welcome_section/Welcome";
 
 
 export default function Page() {
@@ -12,6 +12,7 @@ export default function Page() {
     <>
       <Hero />
       <TitleLine title="welcome in nightclub" className="place-self-center text-center" />
+      <Welcome />
       <TitleLine title="events of the month" className="place-self-center text-center" />
       <TitleLine title="night club gallery" className="place-self-center text-center" />
       <Gallery />

@@ -5,8 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaSnapchatGhost, FaTwitter, FaSquareFull } from "react-icons/fa";
 
-import { color } from "framer-motion";
-
 export default function Testimonials() {
   const [slide, setSlide] = useState([]);
   const [guestId, setGuestId] = useState(1);
@@ -35,7 +33,7 @@ export default function Testimonials() {
       <div className="grid grid-cols-1 grid-rows-1">
         <Image src="/footerbg.webp" alt="People dancing" width={1600} height={1600} className="h-full w-fit lg:w-full brightness-20 object-cover z-0 row-start-1 row-end-2 col-start-1 col-end-2" />
 
-        <main className="grid grid-cols-1 grid-rows-[auto] md:mx-40 justify-items-center text-center gap-3 p-5 md:p-10 lg:px-20 z-100 row-start-1 row-end-2 col-start-1 col-end-2">
+        <main className="grid grid-cols-1 grid-rows-[auto] max-w-6xl mx-auto justify-items-center text-center gap-3 p-5 md:p-10 lg:px-20 z-100 row-start-1 row-end-2 col-start-1 col-end-2">
           <Image src={clubGuest.asset.url} alt={`Club Guest: ${clubGuest.name}`} width={100} height={100} />
           <h2>{clubGuest.name}</h2>
           <p className="text-pretty">{clubGuest.content}</p>
