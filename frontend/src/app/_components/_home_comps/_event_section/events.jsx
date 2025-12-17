@@ -2,14 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import TitleLine from "../../TitleLine";
 import { FaSquareFull } from "react-icons/fa";
 import EvAnimation from "./EvAnimation";
 import Link from "next/link";
 
 export default function Events() {
-  const pathname = usePathname();
   const [activeId, setActiveId] = useState(null);
   const [events, setEvent] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -43,16 +41,8 @@ export default function Events() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const performance = events;
-  const visibleEvents = performance.slice(slideIndex, slideIndex + itemsPerSlide);
+  const visibleEvents = events.slice(slideIndex, slideIndex + itemsPerSlide);
   const slideCount = Math.ceil(events.length / itemsPerSlide);
-
-  {
-    /*
-          href={`/gallery/${photo.id}`}
-
-  */
-  }
 
   return (
     <div className="grid grid-cols-1 grid-rows-1">
