@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import TitleLine from "../../TitleLine";
 import { FaSquareFull } from "react-icons/fa";
+import EvAnimation from "./EvAnimation";
 
 export default function Events() {
+  const [activeId, setActiveId] = useState(null);
   const [events, setEvent] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(2);
@@ -47,36 +48,54 @@ export default function Events() {
     <>
       <div className="grid grid-cols-1 grid-rows-1">
         <Image src="/slider_bg.png" alt="Event background" width={1600} height={700} className="h-full w-fit object-cover row-start-1 col-start-1"></Image>
-        <main className="grid grid-cols-1 sm:grid-cols-2 grid-rows-[auto] gap-y-10 max-w-7xl row-start-1 col-start-1 mx-auto px-4 py-8 md:px-16 md:py-12 ">
+
+        <main className="grid grid-cols-1 sm:grid-cols-2 grid-rows-[auto] gap-y-10 max-w-7xl row-start-1 col-start-1 mx-auto px-4 py-8 md:px-16 md:py-12">
           <TitleLine title="events of the month" className="col-span-2 place-self-center text-center" />
 
           {visibleEvents.map((event) => (
-            <main key={event.id} className="mx-auto px-4">
+            <main key={event.id} className="grid grid-cols-1 grid-rows-[auto] mx-auto px-4" onPointerEnter={() => setActiveId(event.id)} onPointerLeave={() => setActiveId(null)} onPointerDown={() => setActiveId(event.id)} onFocus={() => setActiveId(event.id)} onBlur={() => setActiveId(null)} tabIndex={0}>
               <section className="grid grid-cols-1 grid-rows-1">
-                <Image src={event.asset.url} alt={event.title} width={1600} height={1400} className="z-0 row-start-1 col-start-1 object-cover"></Image>
+                <EvAnimation isActive={activeId === event.id} className="h-full w-full border-y-transparent border-[#FF2A70] row-start-1 col-start-1" animation="bgBlur" target={<Image src={event.asset.url} alt={event.title} width={1600} height={1400} className="h-full w-full object-cover pointer-events-none" />}></EvAnimation>
 
-                {/*grid grid-cols-3 grid-rows-[auto] eller flex flex-col*/}
-                <article className="grid grid-cols-1 grid-rows-[auto] z-10 row-start-1 col-start-1">
-                  <div className="w-full h-full border-t-1 border-[#FF2A70] col-span-3">
-                    <div className="place-self-start border-[#FF2A70] h-full border-t-30 border-r-30 sm:border-t-50 sm:border-r-50 border-r-transparent"></div>
-                  </div>
+                {/*overlay*/}
+                <article className="grid grid-cols-1 grid-rows-[auto] row-start-1 col-start-1">
+                  {/*top border*/}
+                  <EvAnimation isActive={activeId === event.id} className="place-self-start row-start-1 col-start-1 col-span-3" animation="borderTop" target={<div className="h-[2px] bg-[#FF2A70]"></div>}></EvAnimation>
 
-                  <button href="/blog" className="bg-[#FF2A70] w-fit h-fit px-3 py-2 place-self-center row-start-2 col-start-1">
-                    <p className="text-base line-clamp-1">Book Now</p>
-                  </button>
+                  {/*left tri*/}
+                  <EvAnimation isActive={activeId === event.id} className="border-r-transparent border-t-[#FF2A70] place-self-start row-start-1 col-start-1" animation="triLeftGrow" target={<div className="place-self-end border-[#FF2A70]"></div>}></EvAnimation>
 
-                  <section className="flex flex-col mt-5 px-6 py-3 place-self-end h-fit bg-black/75 overflow-hidden row-start-3 col-start-1 col-span-3">
-                    <h5 className="text-base text-balance leading-8 line-clamp-1">{event.title}</h5>
-                    <p className="line-clamp-3 leading-6 text-pretty overflow-hidden">{event.description}</p>
-                  </section>
+                  <EvAnimation
+                    isActive={activeId === event.id}
+                    animation="button"
+                    className="place-self-center row-start-2 col-start-1"
+                    target={
+                      <button href="/blog" className="bg-[#FF2A70] w-fit h-fit px-3 py-2">
+                        <p className="text-base line-clamp-1">Book Now</p>
+                      </button>
+                    }
+                  ></EvAnimation>
 
-                  <div className="w-full h-full border-b-1 border-[#FF2A70] row-start-3 col-start-1 col-span-3">
-                    <div className="place-self-end border-[#FF2A70] h-full border-b-30 border-l-30 sm:border-b-50 sm:border-l-50 border-l-transparent"></div>
-                  </div>
+                  <EvAnimation
+                    isActive={activeId === event.id}
+                    animation="textwrap"
+                    className="place-self-end row-start-3 col-start-1 col-span-3"
+                    target={
+                      <section className="flex flex-col mt-5 px-6 py-3 h-fit bg-black/75 overflow-hidden">
+                        <h5 className="text-base text-balance leading-8 line-clamp-1">{event.title}</h5>
+                        <p className="line-clamp-3 leading-6 text-pretty overflow-hidden">{event.description}</p>
+                      </section>
+                    }
+                  ></EvAnimation>
+
+                  {/*right tri*/}
+                  <EvAnimation isActive={activeId === event.id} className="place-self-end border-l-transparent border-b-[#FF2A70] row-start-3 col-start-1 col-span-3" animation="triRightGrow" target={<div className="place-self-end border-[#FF2A70]"></div>}></EvAnimation>
+                  {/*bottom border*/}
+                  <EvAnimation isActive={activeId === event.id} className="place-self-end row-start-3 col-start-1" animation="borderBottom" target={<div className="h-[2px] bg-[#FF2A70]"></div>}></EvAnimation>
                 </article>
               </section>
 
-              <section className="flex justify-start gap-4 p-2 h-fit bg-[#FF2A70] ">
+              <section className="z-200 flex justify-start gap-4 p-2 h-fit bg-[#FF2A70] ">
                 <p type="date" className="">
                   {new Date(event.date).toLocaleString("en-UK", { day: "2-digit", month: "short" })}
                 </p>

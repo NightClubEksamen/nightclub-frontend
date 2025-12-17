@@ -99,6 +99,7 @@ const textMove = {
 
 const triRight = {
   idle: {
+    zIndex: -1,
     opacity: 0,
     x: 10,
     transition: {
@@ -108,6 +109,7 @@ const triRight = {
     },
   },
   active: {
+    zIndex: 10,
     opacity: [0, 0.1, 1],
     x: 0,
     transition: {
@@ -126,6 +128,7 @@ const triRight = {
 
 const triLeft = {
   idle: {
+    zIndex: -1,
     opacity: 0,
     x: -10,
     transition: {
@@ -135,6 +138,7 @@ const triLeft = {
     },
   },
   active: {
+    zIndex: 10,
     opacity: [0, 0.1, 1],
     x: 0,
     transition: {
@@ -160,7 +164,7 @@ const variantMap = {
   triLeft,
 };
 
-export default function Animation({ isActive, animation = "", target, className = "" }) {
+export default function WelAnimation({ isActive, animation = "", target, className = "" }) {
   const variants = variantMap[animation];
 
   return (
