@@ -46,7 +46,9 @@ export default function CommentForm({ onSubmitComment }) {
 
           {/* Comment */}
           <div className="form-field md:col-span-2">
-            <label htmlFor="comment">Your Comment</label>
+            <label htmlFor="comment" className="place-self-start">
+              Your Comment
+            </label>
             <textarea id="comment" className="form-input" {...register("comment", { required: true, maxLength: 250 })} />
           </div>
 

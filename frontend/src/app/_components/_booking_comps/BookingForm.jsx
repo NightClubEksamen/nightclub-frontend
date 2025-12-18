@@ -156,7 +156,7 @@ export default function BookingForm({ selectedTable, onDateChange }) {
             required
             id="table"
             defaultValue=""
-            className="form-input"
+            className="form-input w-fit"
             {...register("table", { required: true })}
           >
             <option value="" disabled>
@@ -186,7 +186,7 @@ export default function BookingForm({ selectedTable, onDateChange }) {
 
         {/* Number of Guests */}
         <div className="form-field">
-          <label htmlFor="guests">Number of Guests *</label>
+          <label htmlFor="guests">Number of Guests</label>
           <input
             required
             id="guests"
@@ -213,7 +213,7 @@ export default function BookingForm({ selectedTable, onDateChange }) {
 
         {/* Date */}
         <div className="form-field">
-          <label htmlFor="date">Select Date *</label>
+          <label htmlFor="date">Select Date</label>
           <input
             required
             id="date"
@@ -238,7 +238,7 @@ export default function BookingForm({ selectedTable, onDateChange }) {
 
         {/* Comment */}
         <div className="form-field md:col-span-2">
-          <label htmlFor="comment">Your Comment</label>
+          <label htmlFor="comment" className="place-self-start">Your Comment</label>
           <textarea
             id="comment"
             className="form-input"
