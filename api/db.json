@@ -336,16 +336,9 @@
       "id": 3
     },
     {
-      "name": "Ulrik Lars",
-      "email": "UlrikL@gmail.com",
-      "table": "3",
-      "guests": "5",
-      "date": "2025-12-31",
-      "phone": "11 22 33 44",
-      "id": 4
       "name": "Tanya",
       "email": "tanya.hitra@gmail.com",
-      "table": 12,
+      "table": "12",
       "guests": "1",
       "date": "2025-12-25T00:00:00.000Z",
       "phone": "28970216",
@@ -355,12 +348,21 @@
     {
       "name": "Tetiana Khytra",
       "email": "tanya.hitra@gmail.com",
-      "table": 14,
+      "table": "14",
       "guests": "6",
       "date": "2025-12-17T00:00:00.000Z",
       "phone": "28970216",
       "comment": "",
       "id": 5
+    },
+    {
+      "name": "Ulrik Lars",
+      "email": "UlrikL@gmail.com",
+      "table": "3",
+      "guests": "5",
+      "date": "2025-12-31",
+      "phone": "11 22 33 44",
+      "id": 6
     }
   ],
   "newsletters": [
