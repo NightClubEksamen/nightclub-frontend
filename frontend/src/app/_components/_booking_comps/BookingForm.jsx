@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 
+/*brugte chat til at lave arrayet så hvert objekt ikke skulle indtastes manuelt*/
 const TABLES = [
   { id: "1", maxGuests: 4 },
   { id: "2", maxGuests: 4 },
@@ -95,7 +96,7 @@ export default function BookingForm({ selectedTable, onDateChange }) {
         body: JSON.stringify({
           name: data.name,
           email: data.email,
-          table: String(data.table),
+          table: String(data.table), /*string sørger for at (d.t) bliver gemt/sendt som "text" */
           guests: String(data.guests),
           date: data.date, // keep as YYYY-MM-DD (matches your existing reservation)
           phone: data.phone,
@@ -117,7 +118,7 @@ export default function BookingForm({ selectedTable, onDateChange }) {
   };
 
   return (
-    <main className="max-w-6xl place-self-center">
+    <main className="max-w-6xl">
       <h1>
         <b className="text-2xl md:text-4xl">book a table</b>
       </h1>
@@ -241,7 +242,7 @@ export default function BookingForm({ selectedTable, onDateChange }) {
           <label htmlFor="comment" className="place-self-start">Your Comment</label>
           <textarea
             id="comment"
-            className="form-input"
+            className="form-input h-50"
             {...register("comment", { maxLength: 250 })}
           />
         </div>
