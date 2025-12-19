@@ -1,10 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "tailwindcss";
 
-/*@import "tailwindcss/preflight";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";*/
-
 :root {
   /* Color */
   --pink: #ff2a70;
@@ -61,11 +57,8 @@ p {
 /** Forms **/
 /* Før havde vi @apply, hvor man kunne bruge tailwind's styling format/syntax..
     Dog blev det 'falgged' med warning: Unknown rule
-      Koden virkede teknisk set, men vi kunne ikke være sikre på om: 1) det ville virke i alle browser og på alle enheder, 2) det kunne udløse andre problemer.
-    Inden ændring til ren CSS prøvede vi at finde løsninger, hvor vi til sidst spurgte Chat til råds, hvortil vi prøvede at implementere dens "løsninger" og ultimativt at vi bare skulle ændre settings til at ignorere warnings om unknown rules.
-   Til ændringen fik vi hjælp af Chat til at generere/oversætte tailwinds sizes(e.g. w-50) til rem og farver til hex/rgb.
 
-  Hvorfor ikke bare style elementerne i tailwind?
+    Hvorfor ikke bare style elementerne i tailwind?
     En samlet styling for forms på sitet giver bedre/mere konsistens
       - Vi vil undgå gentagelser for hver form (ift. styling)
       - Gør det lettere at opdatere styling for (alle) forms
